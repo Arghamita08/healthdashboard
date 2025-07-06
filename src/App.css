@@ -2,10 +2,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: #333;
-  background-image: url('./images/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   min-height: 100vh;
 }
 
@@ -13,20 +9,24 @@ body {
   box-sizing: border-box;
 }
 
+/* Main Application Container */
 .app-container {
   padding-top: 5px;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: center; 
+  align-items: center;  
   flex-direction: column;
+  background-image: url('./images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* FORM STYLING */
+/* FORM STYLING (Login/Signup forms) */
 .form-container {
-  max-width: 40px;
-  width: 90%;
-  margin: auto;
+  max-width: 400px; 
+  width: 90%; 
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -52,6 +52,7 @@ body {
   border-radius: 10px;
   transition: background 0.5s ease-in-out, color 0.3s;
   font-size: 16px;
+  cursor: pointer; 
 }
 
 .form-container button:hover {
@@ -61,9 +62,12 @@ body {
 
 /* DASHBOARD */
 .dashboard {
-  width: 100%;
+  width: 100%; 
   padding: 1rem;
   min-height: 100vh;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .details {
@@ -73,7 +77,14 @@ body {
 
 .upload-section {
   max-width: 600px;
+  width: 90%;
   margin: 0 auto;
+}
+
+.upload-section label {
+  display: block; 
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .upload-section input,
@@ -93,22 +104,24 @@ body {
   background-color: black;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 .upload-button:hover {
   background-color: navy;
 }
 
-/* HISTORY */
+/* UPLOAD HISTORY */
 .history {
   margin-top: 20px;
-  margin-left: 120px;
-  margin-right: -120px;
+  margin-left: auto; 
+  margin-right: auto; 
+  max-width: 80%; 
+  width: 100%; 
   background: #eee;
   padding: 15px;
   border-radius: 5px;
-  overflow-x: auto;
-  max-width: 80%;
+  overflow-x: auto; 
 }
 
 .history table {
@@ -120,6 +133,7 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   font-size: 14px;
+  text-align: left; 
 }
 
 .history th {
@@ -131,7 +145,7 @@ body {
   background-color: navajowhite;
 }
 
-/* WELCOME */
+/* WELCOME Message */
 .welcome-message {
   font-size: 24px;
   font-weight: bold;
@@ -153,40 +167,37 @@ body {
 }
 
 /* DARK MODE */
-.dark {
-  background-color: #121212;
-  color: white;
-}
-
-.dark body {
-  background-color: #121212;
+.app-container.dark {
+  background-color: #121212; 
+  background-image: none; 
+  color: white; 
 }
 
 .dark .form-container,
 .dark .history {
-  background-color: #1e1e1e;
+  background-color: #1e1e1e; 
   color: white;
 }
 
 .dark table {
-  border-color: #444;
+  border-color: #444; 
 }
 
 .dark th {
-  background-color: #222;
+  background-color: #222; 
 }
 
 .dark td, .dark th {
-  color: white;
+  color: white; 
 }
 
-/* TOGGLE ICON */
+/* THEME TOGGLE Icon */
 .theme-toggle {
   position: fixed;
   top: 40px;
   right: 100px;
   cursor: pointer;
-  z-index: 999;
+  z-index: 999; 
 }
 
 .text-on-hover {
@@ -202,10 +213,11 @@ body {
   opacity: 1;
 }
 
-/* LOGOUT */
+/* LOGOUT Link */
 .logout-link {
   text-align: center;
   margin-top: 20px;
+  width: 100%; 
 }
 
 .logout-link a {
@@ -218,17 +230,32 @@ body {
   text-decoration: underline;
 }
 
-/* RESPONSIVE */
+.history button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: blue; 
+    text-decoration: underline; 
+    cursor: pointer; 
+    font-size: inherit; 
+}
+.history button:hover {
+    color: darkblue; 
+}
+
 @media (max-width: 768px) {
   .form-container {
     padding: 15px;
+    margin: 15px auto; 
   }
 
   .upload-button {
-    margin: 0;
+    margin: 0; 
   }
   .history{
-    margin-left: 60px;
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 90%; 
   }
 
   .history th, .history td {
@@ -240,14 +267,15 @@ body {
     font-size: 20px;
   }
   .theme-toggle {
-  top: 31px;
-  right: 10px;
-}
+    top: 31px;
+    right: 10px; 
+  }
 }
 
 @media (max-width: 480px) {
   .form-container {
     padding: 12px;
+    margin: 10px auto;
   }
 
   .welcome-message {
@@ -264,9 +292,12 @@ body {
 
   .text-on-hover {
     font-size: 11px;
+    margin-left: -30px; 
   }
   .history{
-    margin-left: 30px;
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 95%;
   }
 
   .history th, .history td {
@@ -274,7 +305,7 @@ body {
     padding: 7px;
   }
   .theme-toggle {
-  top: 29px;
-  right: -50px;
-}
+    top: 29px;
+    right: 10px;
+  }
 }
