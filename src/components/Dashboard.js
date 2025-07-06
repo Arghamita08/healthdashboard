@@ -66,6 +66,10 @@ function Dashboard() {
       date: ''
     });
   };
+  const handleViewFile = (fileName) => {
+    console.log(`Attempting to view/download: ${fileName}`);
+    alert(`In a real application, you would view or download the file: ${fileName}`);
+  };
 
   return (
     <div className={`dashboard ${isDarkMode ? 'dark' : ''}`}>
@@ -78,7 +82,7 @@ function Dashboard() {
       </div>
 
       <h2 className="welcome-message">Welcome Patient, {name}!</h2>
-        <h3 className="details">Fill The Patient's Details Here In This Form :</h3>
+      <h3 className="details">Fill The Patient's Details Here In This Form :</h3>
       <form className="upload-section" onSubmit={handleSubmit}>
         <label>Enter Your Patient No : </label>
         <input
@@ -112,8 +116,8 @@ function Dashboard() {
           onChange={handleChange}
           required
         />
-        <br></br>  
-      <label>Enter the Doctor ID : </label>
+        <br></br> 
+        <label>Enter the Doctor ID : </label>
         <input
           type="text"
           name="doctorId"
@@ -122,8 +126,8 @@ function Dashboard() {
           onChange={handleChange}
           required
         />
-        <br></br>  
-      <label>Choose File (PDF) : </label>
+        <br></br> 
+        <label>Choose File (PDF) : </label>
         <input
           type="file"
           name="file"
@@ -131,7 +135,7 @@ function Dashboard() {
           onChange={handleChange}
           required
         />
-        <br></br>       
+        <br></br>     
         <label>Select Date : </label>
         <input
           type="date"
@@ -166,9 +170,20 @@ function Dashboard() {
                   <td>{entry.age}</td>
                   <td>{entry.doctorId}</td>
                   <td>
-                    <a href="#" onClick={(e) => e.preventDefault()}>
+                    <button
+                      type="button"
+                      onClick={() => handleViewFile(entry.file)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        color: 'blue',
+                        textDecoration: 'underline',
+                        cursor: 'pointer'
+                      }}
+                    >
                       {entry.file}
-                    </a>
+                    </button>
                   </td>
                   <td>{entry.date}</td>
                 </tr>
@@ -179,8 +194,8 @@ function Dashboard() {
       </div>
 
       <div className="logout-link">
-    <a href="/" onClick={() => localStorage.removeItem('patientName')}>Logout</a>
-  </div>
+        <a href="/" onClick={() => localStorage.removeItem('patientName')}>Logout</a>
+      </div>
     </div>
   );
 }
