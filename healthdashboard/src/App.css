@@ -1,0 +1,280 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-image: url('./images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.app-container {
+  padding-top: 5px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* FORM STYLING */
+.form-container {
+  max-width: 40px;
+  width: 90%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: background 0.5s ease-in-out, color 0.3s;
+  font-size: 16px;
+}
+
+.form-container button:hover {
+  background: linear-gradient(45deg, rgb(164, 164, 244), rgb(254, 138, 138));
+  color: black;
+}
+
+/* DASHBOARD */
+.dashboard {
+  width: 100%;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.details {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.upload-section input,
+.upload-section select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.upload-button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.upload-button:hover {
+  background-color: navy;
+}
+
+/* HISTORY */
+.history {
+  margin-top: 20px;
+  margin-left: 120px;
+  margin-right: -120px;
+  background: #eee;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  max-width: 80%;
+}
+
+.history table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history th, .history td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.history th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.history th:hover {
+  background-color: navajowhite;
+}
+
+/* WELCOME */
+.welcome-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  animation: fadeInSlide 1.5s ease-out;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* DARK MODE */
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.dark body {
+  background-color: #121212;
+}
+
+.dark .form-container,
+.dark .history {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark table {
+  border-color: #444;
+}
+
+.dark th {
+  background-color: #222;
+}
+
+.dark td, .dark th {
+  color: white;
+}
+
+/* TOGGLE ICON */
+.theme-toggle {
+  position: fixed;
+  top: 40px;
+  right: 100px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.text-on-hover {
+  opacity: 0;
+  color: rgb(255, 88, 88);
+  transition: opacity 0.7s ease-in-out;
+  font-size: 12px;
+  margin-left: -45px;
+  margin-top: 5px;
+}
+
+.theme-toggle:hover .text-on-hover {
+  opacity: 1;
+}
+
+/* LOGOUT */
+.logout-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logout-link a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logout-link a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .upload-button {
+    margin: 0;
+  }
+  .history{
+    margin-left: 60px;
+  }
+
+  .history th, .history td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .welcome-message {
+    font-size: 20px;
+  }
+  .theme-toggle {
+  top: 31px;
+  right: 10px;
+}
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 12px;
+  }
+
+  .welcome-message {
+    font-size: 18px;
+  }
+
+  .upload-button {
+    font-size: 14px;
+  }
+
+  .logout-link {
+    font-size: 14px;
+  }
+
+  .text-on-hover {
+    font-size: 11px;
+  }
+  .history{
+    margin-left: 30px;
+  }
+
+  .history th, .history td {
+    font-size: 10px;
+    padding: 7px;
+  }
+  .theme-toggle {
+  top: 29px;
+  right: -50px;
+}
+}
